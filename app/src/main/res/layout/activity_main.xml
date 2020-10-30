@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,12 +13,12 @@
         android:layout_width="96dp"
         android:layout_height="89dp"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:srcCompat="@drawable/ic_baseline_image_24" />
 
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_margin="5dp"
         android:padding="5dp"
         android:text="MeNotes!"
-        android:textColor="#038679"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
 
         app:layout_constraintBottom_toTopOf="@+id/email"
@@ -42,11 +42,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="20dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="email address"
         android:inputType="textEmailAddress"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="#80FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,6 +61,8 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="#80FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,18 +72,17 @@
         android:id="@+id/signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_marginTop="10dp"
-        android:background="#09aca6"
-        android:text="Login"
-        android:textColor="#FFFFFF"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#028EBE"
+        android:padding="5dp"
+        android:text="Login"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -96,8 +99,9 @@
 
             android:text="Forgot password?"
 
-            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
 
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -107,8 +111,9 @@
 
             android:layout_marginLeft="30dp"
             android:text="Register"
-            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
 
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -119,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:progressBackgroundTint="@color/colorAccent"
         android:visibility="invisible" />
 
 

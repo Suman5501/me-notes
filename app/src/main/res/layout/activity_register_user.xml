@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
+    android:background="@color/colorPrimaryDark"
 
 
     tools:context=".MainActivity">
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="MeNotes!"
         android:textSize="50sp"
-        android:textColor="#09aca6"
+        android:textColor="@color/colorPrimary"
         android:layout_margin="10dp"
         android:padding="5dp"
         android:gravity="center"
@@ -30,7 +30,7 @@
         android:id="@+id/bannerDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:textColor="@color/colorAccent"
         android:gravity="center"
         android:text="Make a note"
         android:textSize="20sp"
@@ -39,42 +39,59 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextFullName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="enter your full name"
-        android:inputType="textPersonName" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextBirthDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="birth date xx/xx/xxxx "
-        android:layout_marginBottom="10dp"
-        android:inputType="date" />
+        <EditText
+            android:id="@+id/editTextFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="enter your full name"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="#80FFFFFF" />
 
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="email address"
-        android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/editTextBirthDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="birth date xx/xx/xxxx "
+            android:inputType="date"
+            android:textColor="@color/colorPrimary"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#80FFFFFF" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginBottom="30dp"
-        android:hint="password"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="email address"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="#80FFFFFF" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="#80FFFFFF" />
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -85,11 +102,13 @@
 
     <Button
         android:id="@+id/registerUser"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#09aca6"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
         android:textSize="15dp"
-        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimaryDark"
         android:text="Register" />
 
 
