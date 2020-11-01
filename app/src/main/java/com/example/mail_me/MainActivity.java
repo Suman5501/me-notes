@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
 
-        signIn = (Button) findViewById(R.id.signIn);
+        signIn = (Button) findViewById(R.id.addTask);
         signIn.setOnClickListener(this);
 
-        editTextEmail = (EditText) findViewById(R.id.email);
+        editTextEmail = (EditText) findViewById(R.id.addTitle);
         editTextPassword = (EditText) findViewById(R.id.password);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.addtaskprogressBar);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.register:
                 startActivity(new Intent(this, RegisterUser.class));
                 break;
-            case R.id.signIn:
+            case R.id.addTask:
                 userLogin();
                 break;
             case R.id.forgotPassword:
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 }else{
-                    Toast.makeText(MainActivity.this,"Failed to login .Invalid emailid/password !",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Failed to login .Invalid email id / password !",Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }

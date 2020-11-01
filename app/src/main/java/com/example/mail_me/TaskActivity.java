@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +20,24 @@ public class TaskActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItem;
-
+    private Button fab;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_task);
+        setContentView(R.layout.activity_task);
 
         recyclerView = findViewById(R.id.recyclerViewId);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TaskActivity.this,AddTaskActivity.class));
+            }
+        });
 
         listItem = new ArrayList<>();
 

@@ -1,11 +1,14 @@
 package com.example.mail_me;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -17,27 +20,38 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
 
-    private FirebaseUser user;
-    private DatabaseReference reference;
-    private String userID;
+ */
+public class ProfileFragment extends Fragment {
 
-    private Button logout;
-    private Button updateProfle;
+
+    public ProfileFragment() {
+        // Required empty public constructor
+    }
+
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        logout = (Button) findViewById(R.id.logout);
-        updateProfle = (Button) findViewById(R.id.updateProfile);
-        updateProfle.setOnClickListener((new View.OnClickListener() {
+        FirebaseUser user;
+        DatabaseReference reference;
+        String userID;
+
+        Button logout;
+        Button updateProfle;
+        View item = inflater.inflate(R.layout.activity_profile, container, false);
+
+        logout = (Button) item.findViewById(R.id.logout);
+        updateProfle = (Button) item.findViewById(R.id.updateProfile);
+        /*updateProfle.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, UpdateProfileActivity.class));
+                startActivity(new Intent(this, UpdateProfileActivity.class));
             }
         }));
         logout.setOnClickListener(new View.OnClickListener() {
@@ -46,15 +60,15 @@ public class ProfileActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(ProfileActivity.this, MainActivity.class));
             }
-        });
+        });*/
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        final TextView fullNameTextView = (TextView) findViewById(R.id.name);
-        final TextView birthDateTextView = (TextView) findViewById(R.id.birthDate);
-        final TextView emailTextView = (TextView) findViewById(R.id.addTitle);
-        final TextView greetingTextView = (TextView) findViewById(R.id.greeting);
+        final TextView fullNameTextView = (TextView) item.findViewById(R.id.name);
+        final TextView birthDateTextView = (TextView) item.findViewById(R.id.birthDate);
+        final TextView emailTextView = (TextView) item.findViewById(R.id.addTitle);
+        final TextView greetingTextView = (TextView) item.findViewById(R.id.greeting);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -80,6 +94,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
+        return item;
     }
 }
