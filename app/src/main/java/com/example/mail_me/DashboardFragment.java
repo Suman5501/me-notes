@@ -3,6 +3,7 @@ package com.example.mail_me;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,7 +24,11 @@ import Models.ListItem;
 
  */
 public class DashboardFragment extends Fragment {
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    List<ListItem> listItem;
 
+    Button fab;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -34,21 +39,32 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        RecyclerView recyclerView;
-        RecyclerView.Adapter adapter;
-        List<ListItem> listItem;
-        Button fab;
+
         View view = inflater.inflate(R.layout.activity_task, container, false);
+
         recyclerView = view.findViewById(R.id.recyclerViewId);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.class));
-        fab = view.findViewById(R.id.fab);
-        /*fab.setOnClickListener(new View.OnClickListener() {
+
+
+        /*fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TaskActivity.this,AddTaskActivity.class));
+                startActivity(new Intent(HomeActivity.this,AddTaskActivity.class));
             }
         });*/
+
+
+        adapter = new MyAdapter(getContext() ,listItem);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         listItem = new ArrayList<>();
 
@@ -57,9 +73,5 @@ public class DashboardFragment extends Fragment {
             listItem.add(item);
         }
 
-        adapter = new MyAdapter(this,listItem);
-        recyclerView.setAdapter(adapter);
-
-        return view;
     }
 }
