@@ -11,6 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <ImageView
             android:id="@+id/profileimageView"
@@ -21,7 +28,7 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="249dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.056"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +41,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_gravity="center"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="105dp"
             android:layout_marginEnd="158dp"
             android:padding="5dp"
             android:text="Profile"
@@ -51,8 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="147dp"
-            android:layout_marginBottom="350dp"
+            android:layout_marginEnd="151dp"
+            android:layout_marginBottom="294dp"
             android:background="@color/colorPrimary"
             android:text="Update"
             tools:layout_editor_absoluteX="166dp"
@@ -65,7 +72,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="36dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="488dp"
+            android:layout_marginBottom="397dp"
             android:layout_toEndOf="@+id/profileimageView"
             android:ems="10"
             android:hint="Display Name"

@@ -48,19 +48,19 @@ public class ProfileFragment extends Fragment {
 
         logout = (Button) item.findViewById(R.id.logout);
         updateProfle = (Button) item.findViewById(R.id.updateProfile);
-        /*updateProfle.setOnClickListener((new View.OnClickListener() {
+        updateProfle.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(this, UpdateProfileActivity.class));
+                startActivity(new Intent(getActivity(), UpdateProfileActivity.class));
             }
         }));
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
             }
-        });*/
+        });
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
