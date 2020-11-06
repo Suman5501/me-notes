@@ -29,15 +29,6 @@ public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        bottomNavigationView = findViewById(R.id.nav_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavMethod);
-
-    }
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -57,9 +48,21 @@ public class HomeActivity extends AppCompatActivity {
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
 
-            return false;
+            return true;
         }
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
+
+        bottomNavigationView = findViewById(R.id.nav_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavMethod);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new HomeFragment1()).commit();
+
+    }
 }
 
 

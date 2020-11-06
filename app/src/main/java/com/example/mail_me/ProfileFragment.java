@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,14 +44,16 @@ public class ProfileFragment extends Fragment {
         String userID;
 
         Button logout;
-        Button updateProfle;
+        Button updateProfile;
         View item = inflater.inflate(R.layout.activity_profile, container, false);
 
         logout = (Button) item.findViewById(R.id.logout);
-        updateProfle = (Button) item.findViewById(R.id.updateProfile);
-        updateProfle.setOnClickListener((new View.OnClickListener() {
+        updateProfile = (Button) item.findViewById(R.id.updateProfile);
+        updateProfile.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.container,new UpdateProfileFragment()).addToBackStack(null).commit();*/
                 startActivity(new Intent(getActivity(), UpdateProfileActivity.class));
             }
         }));

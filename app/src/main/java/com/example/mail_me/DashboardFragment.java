@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +29,7 @@ public class DashboardFragment extends Fragment {
     RecyclerView.Adapter adapter;
     List<ListItem> listItem;
 
-    Button fab;
+    private Button fab;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -46,18 +47,18 @@ public class DashboardFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
 
-        /*fab = view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,AddTaskActivity.class));
-            }
-        });*/
-
-
         adapter = new MyAdapter(getContext() ,listItem);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.container,new AddTaskFragment()).addToBackStack(null).commit();
+            }
+        });
 
         return view;
     }

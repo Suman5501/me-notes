@@ -1,8 +1,13 @@
 package com.example.mail_me;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,7 +30,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
 
-        updatebutton = (Button) findViewById(R.id.updatebutton);
+        updatebutton = (Button) findViewById(R.id.updateProfilebutton);
         displayName = (TextView) findViewById(R.id.displayname);
         profileImageView = (ImageView) findViewById(R.id.profileimageView);
 
@@ -39,12 +44,25 @@ public class UpdateProfileActivity extends AppCompatActivity {
         updatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(openGallery, 1000);
             }
         });
 
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000){
+            if(requestCode == Activity.RESULT_OK){
+                Uri imageUri = data.getData();
+                profileImageView.setImageURI(imageUri);
+            }
+        }
+    }
+
     public void updateProfile(View view){
 
     }

@@ -9,15 +9,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-141dp">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <ImageView
             android:id="@+id/profileimageView"
@@ -27,52 +31,35 @@
 
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="249dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="237dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.056"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_round_account_circle_24"
             tools:layout_editor_absoluteY="144dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="105dp"
-            android:layout_marginEnd="158dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="62dp"
             android:padding="5dp"
             android:text="Profile"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="41dp" />
 
-        <Button
-            android:id="@+id/updatebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="151dp"
-            android:layout_marginBottom="294dp"
-            android:background="@color/colorPrimary"
-            android:text="Update"
-            tools:layout_editor_absoluteX="166dp"
-            tools:layout_editor_absoluteY="322dp" />
+
 
         <EditText
             android:id="@+id/displayname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="397dp"
+            android:layout_marginBottom="379dp"
             android:layout_toEndOf="@+id/profileimageView"
             android:ems="10"
             android:hint="Display Name"
@@ -81,5 +68,17 @@
             android:textColorHint="#B0FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteY="195dp" />
+
+        <Button
+            android:id="@+id/updateProfilebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileimageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="159dp"
+            android:layout_marginTop="62dp"
+            android:background="@color/colorPrimary"
+            android:text="Update" />
+        " />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
