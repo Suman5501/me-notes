@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import Models.User;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseUser user;

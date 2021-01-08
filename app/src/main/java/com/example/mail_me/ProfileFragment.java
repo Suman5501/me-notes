@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import Models.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,6 +53,7 @@ public class ProfileFragment extends Fragment {
         updateProfile.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO
                 /*FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.container,new UpdateProfileFragment()).addToBackStack(null).commit();*/
                 startActivity(new Intent(getActivity(), UpdateProfileActivity.class));

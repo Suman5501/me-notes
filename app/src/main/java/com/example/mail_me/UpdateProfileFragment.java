@@ -1,17 +1,14 @@
 package com.example.mail_me;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,7 +41,7 @@ public class UpdateProfileFragment extends Fragment {
         View item = inflater.inflate(R.layout.activity_update_profile, container, false);
         updatebutton = (Button) item.findViewById(R.id.updateProfilebutton);
         displayName = (TextView) item.findViewById(R.id.displayname);
-        profileImageView = (ImageView) item.findViewById(R.id.profileimageView);
+        profileImageView = (ImageView) item.findViewById(R.id.profileimage);
 
         FirebaseUser user  = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){

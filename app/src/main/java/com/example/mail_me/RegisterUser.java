@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import Models.User;
+
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
     private TextView banner,registerUser;

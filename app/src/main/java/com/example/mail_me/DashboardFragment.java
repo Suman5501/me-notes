@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class DashboardFragment extends Fragment {
     RecyclerView.Adapter adapter;
     List<ListItem> listItem;
 
-    private Button fab;
+    private FloatingActionButton fab;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -41,9 +43,9 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.activity_task, container, false);
+        View item = inflater.inflate(R.layout.activity_task, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerViewId);
+        recyclerView = item.findViewById(R.id.recyclerViewId);
         recyclerView.setHasFixedSize(true);
 
 
@@ -51,16 +53,17 @@ public class DashboardFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        fab = view.findViewById(R.id.fab);
+        fab = item.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.container,new AddTaskFragment()).addToBackStack(null).commit();
+                startActivity(new Intent(getActivity(), AddTaskActivity.class));
+                //FragmentTransaction fr = getFragmentManager().beginTransaction();
+                //fr.replace(R.id.container,new AddTaskFragment()).addToBackStack(null).commit();
             }
         });
 
-        return view;
+        return item;
     }
 
     @Override

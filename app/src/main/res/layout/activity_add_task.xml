@@ -13,17 +13,21 @@
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/colorPrimary"
-                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Add Notes"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="24sp"
+                    android:textStyle="italic|bold" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <ImageView
-            android:id="@+id/profileimageView"
+            android:id="@+id/profileimage"
             android:layout_width="96dp"
             android:layout_height="89dp"
             android:layout_gravity="center"
@@ -45,11 +49,10 @@
             android:text="MeNotes!"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
-
             app:layout_constraintBottom_toTopOf="@+id/addTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileimageView" />
+            app:layout_constraintTop_toBottomOf="@+id/profileimage" />
 
         <EditText
             android:id="@+id/addTitle"
@@ -78,6 +81,8 @@
             android:ems="10"
             android:gravity="start|top"
             android:hint="Add description "
+            android:maxLines="4"
+            android:minLines="2"
             android:inputType="textMultiLine"
             android:textColor="@color/colorPrimary"
             android:textColorHint="#80FFFFFF" />
@@ -97,17 +102,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
-
-
-        <ProgressBar
-            android:id="@+id/addtaskprogressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:progressBackgroundTint="@color/colorAccent"
-            android:visibility="invisible" />
-
-
 
 
 </LinearLayout>

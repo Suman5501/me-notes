@@ -1,4 +1,4 @@
-package com.example.mail_me;
+package Models;
 
 public class User {
 
